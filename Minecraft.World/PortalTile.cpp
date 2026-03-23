@@ -89,7 +89,7 @@ bool PortalTile::trySpawnPortal(Level *level, int x, int y, int z, bool actually
 			bool edge = (xx == -1) || (xx == 2) || (yy == -1) || (yy == 3);
 			if ((xx == -1 || xx == 2) && (yy == -1 || yy == 3)) continue;
 
-			int t = level->getTile(x + xd * xx, y + yy, z + zd * xx);
+			int t = level->getTile(x + xd * xx, y + yy, z + zd * yy);
 
 			if (edge)
 			{
@@ -109,7 +109,7 @@ bool PortalTile::trySpawnPortal(Level *level, int x, int y, int z, bool actually
 	{
 		for (int yy = 0; yy < 3; yy++)
 		{
-			level->setTileAndData(x + xd * xx, y + yy, z + zd * xx, Tile::portalTile_Id, 0, Tile::UPDATE_CLIENTS);
+			level->setTileAndData(x + xd * xx, y + yy, z + zd * yy, Tile::portalTile_Id, 0, Tile::UPDATE_CLIENTS);
 		}
 	}
 
